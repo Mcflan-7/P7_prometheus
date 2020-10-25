@@ -1,57 +1,216 @@
-body {
-    background-image: url('../background.jpg');
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: initial;
-  }
+/* Main style */
 
-a:link {
-text-decoration: none;
+
+html, body
+{
+	height: 100%;
 }
 
-.ask {
-    background-color: brown;
-    width: 50em;
-    height: 32em;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-width: 2px;
-    border-color: yellow;
-  }
+body
+{
+	margin: 0px;
+	padding: 0px;
+	background: #2b2b2b;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 11pt;
+	font-weight: 300;
+	color: #6c6c6c
+}
 
-  .bot-message {
+h1, h2, h3
+{
+	margin: 0;
+	padding: 0;
+	font-weight: 600;
+	color: #454445;
+}
+
+p, ol, ul
+{
+	margin-top: 0;
+}
+
+ol, ul
+{
+	padding: 0;
+	list-style: none;
+}
+
+p
+{
+	line-height: 180%;
+}
+
+
+a
+{
+	color: #2C383B;
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+.container
+{
+	margin: 0px auto;
+	width: 1200px;
+}
+
+/* Logo style and and nav bar */
+
+#logo
+{
+	top: 1.6em;
+	position: absolute;
+  	width: 100%;
   
-    width: 12em;
-    height: 2em;
-    left: 2px; 
-    position: sticky; 
-    margin-left: 8px;
-    display: block;
-    margin-top: 33px;
-    padding-top: 33px;
-    
-  }
+}
 
-  .guest-message {
-    color: aqua;
-    width: 12em;
-    height: 2em;
-    left: 67em;
-    margin-right: 8px;
-    position: sticky; 
-    display: block;
-    margin-top: 33px;
-    padding-top: 33px;
-  }
+#logo h1
+{
+display: inline-block;
+font-size: 2.5em;
+text-transform: uppercase;
+font-weight: 700;
+  color: #ED7070;
+  border-bottom-width: 2px;
+  max-width: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-style: solid;
+}
 
-  .avatar {
-    border-radius: 50%;
-    height: 50px;
-  }
 
-  input {
-    width: 25em;
-    height: 2em;
-    text-indent: 3px;
-  }
+#logo a
+{
+	text-decoration: none;
+	color: #FFF;
+}
+
+
+#menu
+{
+	position: absolute;
+	right: 0;
+	top: 1.6em;
+
+}
+
+#menu ul
+{
+	display: inline-block;
+}
+
+#menu li
+{
+	display: block;
+	float: left;
+	text-align: center;
+}
+
+#menu li a, #menu li span
+{
+	display: inline-block;
+	margin-left: 1px;
+	padding: 1em 1.5em 1em 1.5em;
+	letter-spacing: 0.10em;
+	text-decoration: none;
+	font-size: 1em;
+	text-transform: uppercase;
+	outline: 0;
+	color: #FFF;
+}
+
+#menu li:hover
+{
+	border-bottom: solid thin;
+	color: #ED7070;
+}
+
+/* Extras */
+
+#ask-content
+{
+
+margin-top: 7%;
+background-color: #ED7070;
+width: 700px;
+margin-left: auto;
+margin-right: auto;
+height: 500px;
+border-bottom-left-radius: 30px;
+border-bottom-right-radius: 30px;
+
+}
+
+#ask-header
+{
+
+	width: 100%;
+	height: 60px;
+	background: white;
+	border-radius: 10px 10px 0 0;
+}
+
+#ask-action
+{
+display: inline;
+text-transform: uppercase;
+min-height: 30px;
+}
+
+.ask-bot-message, .ask-guest-message
+{
+margin-top: 10px;
+margin-bottom: 10px;
+border-radius: 30px;
+max-width: 25em;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 3px;
+padding-bottom: 3px;
+
+}
+
+.ask-bot-message {
+	background: lighten(dark, 23%)
+	
+}
+
+.ask-guest-message
+{
+	background-color: aqua;
+	
+
+ }
+
+
+.ellipsis {
+width: 5px;
+height: 5px;
+display: inline-block;
+background: lighten($dark, 25%);
+border-radius: 50%;
+animation: bounce 1.3s linear infinite;
+}
+
+.one {
+animation-delay: 0.6s;
+}
+.two {
+animation-delay: 0.5s;
+}
+.three {
+animation-delay: 0.8s;
+}
+
+  
+
+@keyframes bounce {
+30% { transform: translateY(-2px); }
+60% { transform: translateY(0px); }
+80% { transform: translateY(2px); }
+100% { transform: translateY(0px); opacity: 0.5;  }
+}
