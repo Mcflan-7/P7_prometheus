@@ -1,51 +1,87 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Styles and custom CSS -->
-    <link rel="stylesheet" href="/static/css/style.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-    <title>Prometheus</title>
-</head>
-<body>
-            <div id="logo">
-                <h1><a href="#">Prometheus</a></h1>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Styles and custom CSS -->
+      <link rel="stylesheet" href="/static/css/style.css" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+      <title>Prometheus - Robot presque intelligent</title>
+   </head>
+   <body>
+      <header>
+         <div id="logo" >
+            <h1 class="header-title">
+               <a href="#">Prometheus</a>
+               <i id="header-logo" class="fas fa-robot"></i>
+            </h1>
+            Ò
+         </div>
+         <nav>
+            <ul>
+               <li><a href="#" title="Le projet">Le projet</a></li>
+               <li><a href="#" title="Poser une question">Poser une question</a></li>
+               <li><a href="#" title="Qui suis-je">Qui suis-je</a></li>
+            </ul>
+         </nav>
+      </header>
+      <!-- Prometheus chatbox -->
+      <section class="chatbox">
+      <!-- Title, avatar, icones -->
+      <div class="chat-header">
+         <img class="user-img-header"  
+            src="https://blog.generationrobots.com/wp-content/uploads/2017/05/cropped-tete-de-robot.png"/> 
+         <h1>
+            Prometheus <img  width="12px" src="https://miro.medium.com/max/512/1*nZ9VwHTLxAfNCuCjYAkajg.png" alt="">
+         </h1>
+         <div class="chat-icones">
+            <i class="fas fa-phone fa-rotate-180"></i>
+            <i class="fas fa-video"></i>
+            <i class="fas fa-info"></i>
+         </div>
+      </div>
+      <section class="chat-window">
+         <br>
+         <!-- Messages from  bot -->
+         <article class="msg-container msg-bot">
+            <div class="msg-box">
+               <img class="user-img" id="user-0"   src="https://blog.generationrobots.com/wp-content/uploads/2017/05/cropped-tete-de-robot.png" />
+               <div class="flr">
+                  <div class="messages">
+                     <p class="msg" id="msg-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius, neque non tristique tincidunt, mauris nunc efficitur erat, elementum semper justo odio id nisi.
+                     </p>
+                  </div>
+               </div>
             </div>
-
-            <div id="menu" >
-                <ul>
-                    <li class="current_page"><a href="#" accesskey="1" title="">Le projet</a></li>
-                    <li><a href="#" accesskey="2" title="">Poser une question</a></li>
-                    <li><a href="#" accesskey="3" title="">Qui suis-je</a></li>
-                </ul>
+         </article>
+         <!-- Messages from  guest input-->
+         <article class="msg-container msg-self" id="msg-0">
+            <div class="msg-box">
+               <div class="flr">
+                  <div class="messages">
+                     <p class="msg" id="msg-1">
+                        Lorem ipsum dolor sit amet
+                     </p>
+                     <p class="msg" id="msg-2">
+                        Praesent varius
+                     </p>
+                  </div>
+               </div>
+               <img class="user-img" id="user-0" src="//gravatar.com/avatar/56234674574535734573000000000001?d=retro" />
             </div>
-
-        <div id="ask-content">
-            <div id="ask-header">  PROMETHEUS
-                <div id="ask-action"> TEL EMAIL</div>
-            </div>
-            
-            <div class="ask-guest-message">Qui êtes vous ?</div>
-
-            <div class="ask-bot-message">Je suis prometheus Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime magni sit, exercitationem nobis consequuntur voluptatem mollitia illo, 
-                laudantium ullam aut necessitatibus praesentium quas asperiores iste cumque soluta nam fugit rerum.</div>
-            
-            <div class="ask-guest-message">Ou habites-tu ?</div>
-
-            <div class="ask-bot-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni dolorum.</div>
-            <div class="typing">
-                <div class="bubble">
-                  <div class="ellipsis one"></div>
-                  <div class="ellipsis two"></div>
-                  <div class="ellipsis three"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-       
-
-</body>
+         </article>
+         <!-- Chatbox form for guest -->
+         <form class="chat-input">
+            <input type="text" autocomplete="off" placeholder="Posez votre question.." />
+         </form>
+      </section>
+      <!-- Prometheus chatbox END-->
+      <!--JS script -->
+      <script>
+         document.getElementById("ask-form").addEventListener("input", function(){ 
+             document.getElementById("status").innerText = "Prometheus est en ligne"; 
+         }); 
+      </script>
+   </body>
 </html>

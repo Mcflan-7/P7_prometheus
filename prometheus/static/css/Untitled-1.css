@@ -1,0 +1,144 @@
+/* Main style for P7 - https://github.com/Mcflan-7/P7_prometheus  */
+
+
+html, body
+{
+	height: 100%;
+}
+
+body
+{
+	margin: 0px;
+	padding: 0px;
+	background: #2b2b2b;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 11pt;
+	font-weight: 300;
+	color: #6c6c6c
+}
+
+header 
+{
+	
+}
+
+header h2
+{
+color: turquoise;
+font-size: smaller;
+}
+
+h1, h2, h3
+{
+	margin: 0;
+	padding: 0;
+	font-weight: 600;
+	color: #454445;
+}
+
+p, ol, ul
+{
+	margin-top: 0;
+}
+
+ol, ul
+{
+	padding: 0;
+	list-style: none;
+}
+
+p
+{
+	line-height: 180%;
+}
+
+
+a
+{
+	color: #2C383B;
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+.container
+{
+	margin: 0px auto;
+	width: 1200px;
+}
+
+/* Logo style and and nav bar */
+
+#logo
+{
+	top: 1.6em;
+	position: absolute;
+  	width: 100%;
+  
+}
+
+#logo h1
+{
+display: inline-block;
+font-size: 2.5em;
+text-transform: uppercase;
+font-weight: 700;
+  color: #ED7070;
+  border-bottom-width: 2px;
+  max-width: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-style: solid;
+}
+
+
+#logo a
+{
+	text-decoration: none;
+	color: #FFF;
+}
+
+
+#menu
+{
+	position: absolute;
+	right: 0;
+	top: 1.6em;
+
+}
+
+#menu ul
+{
+	display: inline-block;
+}
+
+#menu li
+{
+	display: block;
+	float: left;
+	text-align: center;
+}
+
+#menu li a, #menu li span
+{
+	display: inline-block;
+	margin-left: 1px;
+	padding: 1em 1.5em 1em 1.5em;
+	letter-spacing: 0.10em;
+	text-decoration: none;
+	font-size: 1em;
+	text-transform: uppercase;
+	outline: 0;
+	color: #FFF;
+}
+
+#menu li:hover
+{
+	border-bottom: solid thin;
+	color: #ED7070;
+}
+
+/* Extras */
+
