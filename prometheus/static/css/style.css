@@ -1,3 +1,9 @@
+/* FREE TO USE AND MODIFY, FULL CODE IN FOOTER */
+
+/*----------------------------------*/
+/*       MAIN STYLE USING HTML5 DIV */
+/*----------------------------------*/
+
 body {
   margin: 0px;
   padding: 0px;
@@ -11,7 +17,10 @@ body {
   flex-direction: column;
 }
 
-/* Main container */
+
+header {
+  background-color:#4b4e58;
+}
 
 header a {
   display: inline-block;
@@ -23,12 +32,26 @@ header a {
   margin-right: auto;
 }
 
-header h2 {
+header h1 {
   display: inline-block;
-  font-size: 0.5em;
   text-transform: uppercase;
-  font-weight: 700;
-  color: #ed7070;
+  margin-left: 12px;
+}
+
+header h2 {
+  font-size: 1em;
+  color: white;
+  margin-left: 150px;
+  position: absolute;
+  top: 50px;
+  
+}
+
+header #header-logo {
+ color: white;
+ font-size: 45px;
+ transform: rotate(25deg);
+ margin-left: 12px;
 }
 
 nav {
@@ -65,15 +88,19 @@ nav li:hover {
   flex-grow: 1; /* 4 */
 }
 
+/*----------------------------------*/
+/*       CHATBOX STYLING & EXTRA    */
+/*----------------------------------*/
+
 .chatbox {
-  width: 500px;
+  width: 800PX;
   border-radius: 20px;
   margin: auto;
   display: flex;
   padding-top: 20px;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+
 }
 
 .chat-header {
@@ -90,7 +117,6 @@ nav li:hover {
 .chat-header h1 {
   margin-left: 10px;
 }
-
 .chat-icones {
   color: rgb(255, 255, 255);
   margin-left: 195px;
@@ -114,6 +140,7 @@ nav li:hover {
   flex: auto;
   max-height: calc(100% - 60px);
   background: #ffffff;
+  height: 300px;
   overflow: auto;
 }
 .chat-input {
@@ -136,16 +163,6 @@ nav li:hover {
   background: #40434e;
 }
 
-.chat-input input[good] + button {
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-  background: #2671ff;
-}
-.chat-input input[good] + button:hover {
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.chat-input input[good] + button path {
-  fill: white;
-}
 .msg-container {
   position: relative;
   display: inline-block;
@@ -155,7 +172,7 @@ nav li:hover {
 }
 .msg-box {
   display: flex;
-  background: #5b5e6c;
+  background: #2e47b4;
   padding: 10px 10px 0 10px;
   border-radius: 0 6px 6px 0;
   max-width: 80%;
@@ -171,12 +188,7 @@ nav li:hover {
   background: #2671ff;
   margin: 0 10px 10px 0;
 }
-.flr {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 50px);
-}
+
 .messages {
   flex: 1 0 auto;
 }
@@ -201,22 +213,11 @@ nav li:hover {
   text-align: right;
 }
 
-/* Extra */
+/*----------------------------------*/
+/*       ANIMATION FOR LOGO         */
+/*----------------------------------*/
 
-#logo a {
-  color: #ed7070;
-}
-
-#header-logo {
-  color: #ed7070;
-  font-size: 20px;
-}
-
-a {
-  text-decoration: none;
-}
-
-#logo:hover {
+#header-logo:hover {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
@@ -246,7 +247,10 @@ a {
   }
 }
 
-/* CSS for small screen and mobile */
+/*----------------------------------*/
+/*       SMALLER SCREEN MEDIA       */
+/*----------------------------------*/
+
 @media screen and (max-width: 1280px) {
   #logo a {
     display: inline-block;
@@ -255,6 +259,11 @@ a {
     font-weight: 700;
   }
 
+  header #header-logo {
+    color: white;
+    font-size: 20px;
+    margin-left: 1px;
+   }
   nav li a,
   nav li span {
     display: inline-block;
@@ -267,4 +276,132 @@ a {
     outline: 0;
     color: #fff;
   }
+
+  .chatbox {
+    width: 500PX;
+  
+  
+  }
+
+  header h2 {
+    font-size: 10px;
+    color: white;
+    margin-left: 60px;
+    position: absolute;
+    top: 40px;
+    
+  }
+  
+}
+
+
+/*----------------------------------*/
+/*        EXTRA FOR STYLING         */
+/*----------------------------------*/
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  width: 300px;
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.show-modal {
+  font-size: 2rem;
+  float: right;
+  text-align: right;
+  position: absolute;
+  right: 300px;
+  top: 289px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+/*----------------------------------*/
+/*        EXTRA FOR STYLING         */
+/*----------------------------------*/
+
+#logo a {
+  color: #ed7070;
+}
+
+#header-logo {
+  color: #ed7070;
+  
+}
+
+a {
+  text-decoration: none;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #4CAF50;
+  color: white;
 }

@@ -15,7 +15,7 @@
                <a href="#">Prometheus</a>
                <i id="header-logo" class="fas fa-robot"></i>
             </h1>
-            Ò
+            <h2>Je sais presque tout !</h2>
          </div>
          <nav>
             <ul>
@@ -33,19 +33,22 @@
             src="https://blog.generationrobots.com/wp-content/uploads/2017/05/cropped-tete-de-robot.png"/> 
          <h1>
             Prometheus <img  width="12px" src="https://miro.medium.com/max/512/1*nZ9VwHTLxAfNCuCjYAkajg.png" alt="">
+            <span class="show-modal"></span>
+        
          </h1>
-         <div class="chat-icones">
+         <!-- <div class="chat-icones">
             <i class="fas fa-phone fa-rotate-180"></i>
             <i class="fas fa-video"></i>
-            <i class="fas fa-info"></i>
-         </div>
+          
+         </div> -->
       </div>
       <section class="chat-window">
          <br>
          <!-- Messages from  bot -->
          <article class="msg-container msg-bot">
             <div class="msg-box">
-               <img class="user-img" id="user-0"   src="https://blog.generationrobots.com/wp-content/uploads/2017/05/cropped-tete-de-robot.png" />
+               <img class="user-img" id="user-0" 
+               src="https://blog.generationrobots.com/wp-content/uploads/2017/05/cropped-tete-de-robot.png" />
                <div class="flr">
                   <div class="messages">
                      <p class="msg" id="msg-0">
@@ -71,17 +74,31 @@
                <img class="user-img" id="user-0" src="//gravatar.com/avatar/56234674574535734573000000000001?d=retro" />
             </div>
          </article>
-         <!-- Chatbox form for guest -->
-         <form class="chat-input">
-            <input type="text" autocomplete="off" placeholder="Posez votre question.." />
-         </form>
       </section>
+       <!-- Chatbox form for guest -->
+       <form class="chat-input">
+         <input type="text" autocomplete="off" placeholder="Posez votre question.." />
+      </form>
       <!-- Prometheus chatbox END-->
+
+      <!-- Modal to display settings and information for Prometheus-->
+      <div class="modal hidden">
+         <button class="close-modal">&times;</button>
+         <h1>En savoir plus 🤖</h1>
+         <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+           veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+           commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+           velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+           occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+           mollit anim id est laborum.
+         </p>
+       </div>
+       <div class="overlay hidden"></div>
+       <!-- Modal to display settings and information for Prometheus END-->
+      
       <!--JS script -->
-      <script>
-         document.getElementById("ask-form").addEventListener("input", function(){ 
-             document.getElementById("status").innerText = "Prometheus est en ligne"; 
-         }); 
-      </script>
+      <script src="/static/js/scripts.js"></script>
    </body>
 </html>
