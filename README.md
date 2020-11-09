@@ -1,33 +1,41 @@
-# OpenFoodFacts
+![enter image description here](https://travis-ci.com/Mcflan-7/P5_OpenFoodFacts.svg?branch=master) ![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
 
-Prometheus is an AI based from the book Life 3.0 (Max Tegmark)  
+# ✨ Prometheus bot ✨
 
-## Summary 
+Prometheus is a web application using Google Maps and Media Wiki API that display specific information in AJAX following the guest question.
+
+The name come from the book's intro **Life 3.0** from Max Tegmark where a fictional story with a superhuman AI (Prometheus) is conquering the world, it does an amazing job of outlining some of the ways a superhuman AI could impact the world in the good or bad way.
+
+[The Tale of the Omega Team - Max Tegmark: Life 3.0 ](https://www.youtube.com/watch?v=ttZSk7rmFvc)
+
+## Summary 📋
 
 - [Getting started](#getting-started)
 - [Installing](#installing)
 - [Prerequisites](#prerequisites)
-- [Coding style and tools for formating](#coding-style-and-tools-for-formating)
 - [Built with](#built-with)
 - [Authors](#authors)
 
+## Getting Started 🚀
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+These instructions will guide to test the project on your own or you local machine
 
 ### Prerequisites
 
+If you wish to test the code online : [to be completed]
+
 Make sure to have Python 3x installed on your computer
 Run the following in your command prompt
+
 ```
 python
 ```
-I used Python 3.8.0 to built this program
+
+I used **Python 3.8.0** to built this program, Python 3.0 to 3.8 will work.
 
 ### Installing
 
-A step by step that tell you how to get my code up and running :
+A step by step that tell you how to get my code up and running on your local machine :
 
 - Clone my repo
 
@@ -40,40 +48,40 @@ git clone https://github.com/Mcflan-7/P7_prometheus.git
 ```
 python -m venv venv
 ```
+
 - Activate your virtual environement with
- `source venv/Scripts/activate` on windows 
- `source venv/bin/activate` on MacOS
+
+  ```
+  Windows: source venv/Scripts/activate
+  MacOS: source venv/bin/activate
+  ```
 
 - Install the requirement with
 
 ```
 pip install -r requirements.txt
 ```
-- Launch the programme 
+
+- CD to the app directory
 
 ```
-python -m main
+cd prometheus
 ```
 
-### Coding style and tools for formating
-
-I try to stick to the -PEP 8 -- Style Guide for Python Code- as most as I can, to format my code I use those tools
+- Export the app and run flask
 
 ```
-isort
+export FLASK_APP=index.py
+python -m flask run
 
-docformatter
-
-black
-
-flake8
 ```
 
-## Built With
+## Built With 🛠
 
-* [Python]([https://www.python.org/](https://www.python.org/)) - The programming language that lets you work quicklyand integrate systems more effectively
-* [VSCODE]([https://code.visualstudio.com/](https://code.visualstudio.com/)) - The code editing redefined
+- [Python](<[https://www.python.org/](https://www.python.org/)>) - The programming language that lets you work quicklyand integrate systems more effectively
+- [Flask](<[https://flask.palletsprojects.com/en/1.1.x/(https://flask.palletsprojects.com/en/1.1.x/)>) - Web development one drop at a time
+- [VSCODE](<[https://code.visualstudio.com/](https://code.visualstudio.com/)>) - The code editing redefined
 
-## Authors
+## Authors 💻
 
-* **Gaëtan GROND** - *Initial work* - [Mcflan-GR]([https://github.com/Mcflan-7](https://github.com/Mcflan-7))
+- **Gaëtan GROND** - _Initial work_ - [GITHUB](<[https://github.com/Mcflan-7](https://github.com/Mcflan-7)>)
