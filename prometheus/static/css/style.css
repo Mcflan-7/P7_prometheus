@@ -17,9 +17,8 @@ body {
   flex-direction: column;
 }
 
-
 header {
-  background-color:#4b4e58;
+  background-color: #4b4e58;
 }
 
 header a {
@@ -44,14 +43,13 @@ header h2 {
   margin-left: 150px;
   position: absolute;
   top: 50px;
-  
 }
 
 header #header-logo {
- color: white;
- font-size: 45px;
- transform: rotate(25deg);
- margin-left: 12px;
+  color: white;
+  font-size: 45px;
+  transform: rotate(25deg);
+  margin-left: 12px;
 }
 
 nav {
@@ -93,14 +91,13 @@ nav li:hover {
 /*----------------------------------*/
 
 .chatbox {
-  width: 800PX;
+  width: 800px;
   border-radius: 20px;
   margin: auto;
   display: flex;
   padding-top: 20px;
   flex-direction: column;
   overflow: hidden;
-
 }
 
 .chat-header {
@@ -217,34 +214,68 @@ nav li:hover {
 /*       ANIMATION FOR LOGO         */
 /*----------------------------------*/
 
-#header-logo:hover {
-  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  transform: translate3d(0, 0, 0);
+.heading-primary {
+  animation-name: moveInLeft;
+  animation-duration: 1s;
   backface-visibility: hidden;
-  perspective: 1000px;
+  /* fix for jumping animation */
 }
 
-@keyframes shake {
-  10%,
-  90% {
+.logo-img {
+  animation-name: SpinnerRobot;
+  animation-duration: 1s;
+  backface-visibility: hidden;
+  /* fix for jumping animation */
+}
+
+@keyframes moveInLeft {
+  /* start animation */
+  0% {
+    opacity: 0;
+    transform: translateY(-10rem);
+    /* x ligne Y hauteur */
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+
+  /* end animation */
+}
+
+/* logo H1 subtext animation */
+@keyframes SpinnerRobot {
+  /* start animation */
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
     transform: translate3d(-1px, 0, 0);
+    /* x ligne Y hauteur */
   }
-
-  20%,
   80% {
-    transform: translate3d(2px, 0, 0);
+    transform: rotate(180deg);
   }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+  /* end animation */
+}
 
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
+@keyframes moveInBottom {
+  /* start animation */
+  0% {
+    opacity: 0;
+    transform: translateY(8rem);
+    /* x ligne Y hauteur */
   }
-
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
+  80% {
+    transform: translateY(0);
   }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+  /* end animation */
 }
 
 /*----------------------------------*/
@@ -263,24 +294,22 @@ nav li:hover {
     color: white;
     font-size: 20px;
     margin-left: 1px;
-   }
+  }
   nav li a,
   nav li span {
     display: inline-block;
     margin-left: 1px;
-    padding: 1em 1.5em 1em 1.5em;
-    letter-spacing: 0.1em;
+    padding: 1em 1.5em 1em;
+    letter-spacing: 1px;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 8px;
     text-transform: uppercase;
     outline: 0;
     color: #fff;
   }
 
   .chatbox {
-    width: 500PX;
-  
-  
+    width: 500px;
   }
 
   header h2 {
@@ -289,11 +318,8 @@ nav li:hover {
     margin-left: 60px;
     position: absolute;
     top: 40px;
-    
   }
-  
 }
-
 
 /*----------------------------------*/
 /*        EXTRA FOR STYLING         */
@@ -358,7 +384,6 @@ nav li:hover {
 
 #header-logo {
   color: #ed7070;
-  
 }
 
 a {
@@ -402,6 +427,6 @@ a {
 
 /* Style the active link (or home/logo) */
 .active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
