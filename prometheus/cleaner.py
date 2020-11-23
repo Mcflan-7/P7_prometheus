@@ -16,6 +16,7 @@ class DataCleaner:
         return cleaned_data
 
 
-cleaner = DataCleaner()
-clean = cleaner.normalize_data("eéééé")
-print(clean)
+if __name__ == "__main__":
+    cleaner = DataCleaner()
+    clean = cleaner.normalize_data("eéééé")
+    print(clean)
