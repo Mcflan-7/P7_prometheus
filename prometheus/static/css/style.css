@@ -1,7 +1,7 @@
 /* FREE TO USE AND MODIFY, FULL CODE IN FOOTER */
 
 /*----------------------------------*/
-/*       MAIN STYLE USING HTML5 DIV */
+/*   MAIN STYLE USING HTML5 DIV     */
 /*----------------------------------*/
 
 body {
@@ -84,6 +84,17 @@ nav li:hover {
 
 #container {
   flex-grow: 1; /* 4 */
+}
+
+#footer-main a {
+  text-align: center;
+  position: absolute;
+  padding-top: 80px;
+  bottom: 1px;
+  color: wheat;
+  font-size: small;
+  right: 700px;
+  padding-top: 222px;
 }
 
 /*----------------------------------*/
