@@ -12,11 +12,13 @@ class DataCleaner:
         cleaned_data = (
             unicodedata.normalize("NFD", data).encode("ascii", "ignore").decode("utf-8")
         )
-        cleaned_data = str(cleaned_data).lower().capitalize()
+        cleaned_data = (
+            str(cleaned_data)
+            .lower()
+            .capitalize()
+            .replace("!", "")
+            .replace(",", "")
+            .replace("?", "")
+            .replace(".", "")  # refactore replace method to make it more pythonic
+        )
         return cleaned_data
-
-
-if __name__ == "__main__":
-    cleaner = DataCleaner()
-    clean = cleaner.normalize_data("eéééé")
-    print(clean)

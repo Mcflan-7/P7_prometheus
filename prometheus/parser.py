@@ -10,10 +10,9 @@ with open("prometheus/stopwords.json", "r") as f:
 
 
 class ParserData:
-    """ Parse data and isolate works"""
+    """ Parse data from the user and keep useful information"""
 
     def __init__(self):
-        self.input_example = "Bonjour Gaëtan, où se trouve Paris ?"
         self.stopword_fr = stopword_fr
 
     def isolated_data(self, input_data):
@@ -34,15 +33,6 @@ class ParserData:
         return result
 
 
-question_1 = "Salut grandpy! Comment s'est passé ta soirée avec Grandma hier soir? Au fait, pendant que j'y pense, pourrais-tu m'indiquer où se trouve le musée d'art et d'histoire de Fribourg, s'il te plaît?"
-question_2 = "Bonsoir Grandpy, j'espère que tu as passé une belle semaine. Est-ce que tu pourrais m'indiquer l'adresse de la tour eiffel? Merci d'avance et salutations à Mamie."
-
-cleaner = DataCleaner()
-
-question_2 = cleaner.normalize_data(question_2)
-question_1 = cleaner.normalize_data(question_1)
-
 if __name__ == "__main__":
     parser = ParserData()
-
-    print(parser.isolated_data(question_2))
+    cleaner = DataCleaner()

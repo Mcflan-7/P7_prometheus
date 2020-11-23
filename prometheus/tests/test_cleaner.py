@@ -13,4 +13,4 @@ class TestDataCleaner:
     def test_if_data_has_not_special_character(self):
         """Test if data has not special characters"""
         cleaner = DataCleaner()
-        assert cleaner.normalize_data("gâétân") == "Gaetan"
+        assert cleaner.normalize_data("gâétân,.!?") == "Gaetan"
