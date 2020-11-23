@@ -1,4 +1,4 @@
-![enter image description here](https://travis-ci.com/Mcflan-7/P5_OpenFoodFacts.svg?branch=master) ![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
+![Prometheus Build](https://github.com/gaetangr/P7_prometheus/workflows/Prometheus%20Build/badge.svg) ![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
 
 # ✨ Prometheus bot ✨
 
