@@ -242,6 +242,14 @@ nav li:hover {
   /* end animation */
 }
 
+.mask-logo {
+  position: absolute;
+  left: 161px;
+  top: 35px;
+  transform: rotate(29deg);
+  z-index: 20;
+}
+
 /* logo H1 subtext animation */
 @keyframes SpinnerRobot {
   /* start animation */
@@ -430,3 +438,5 @@ a {
   background-color: #4caf50;
   color: white;
 }
+
+/* Style the active link (or home/logo) */

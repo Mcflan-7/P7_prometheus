@@ -1,5 +1,6 @@
 """ Module to setup error handler """
 from flask import render_template
+
 from .index import app
 
 
