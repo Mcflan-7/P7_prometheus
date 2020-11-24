@@ -1,9 +1,14 @@
 """Main module for """
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+
+from .constant import SECRET_KEY
+from .forms import MyForm
 
 app = Flask(__name__)
+app.secret_key = SECRET_KEY
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    form = MyForm(request.form)
+    return render_template("index.html", form=form)

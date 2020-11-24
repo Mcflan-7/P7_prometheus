@@ -73,6 +73,12 @@
       <form class="chat-input">
          <input type="text" autocomplete="off" placeholder="Posez votre question.." />
       </form>
+
+      <form method="POST" action="/">
+    {{ form.csrf_token}}
+     {{ form.name(placeholder="Posez votre question..")}}
+    <input type="submit" value="Go">
+</form>
       <!-- Prometheus chatbox END-->
       <footer id="footer-main">
          <p>
