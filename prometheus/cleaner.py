@@ -19,6 +19,6 @@ class DataCleaner:
             .replace("!", "")
             .replace(",", "")
             .replace("?", "")
-            .replace(".", "")  # refactore replace method to make it more pythonic
+            .replace(".", "")
         )
         return cleaned_data

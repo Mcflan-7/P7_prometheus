@@ -8,7 +8,7 @@ class TestDataCleaner:
         """Test if data is checking cleaning requirements"""
         cleaner = DataCleaner()
         data_test = "Je suis un test"
-        assert cleaner.normalize_data("je Suis un tEst") == data_test
+        assert cleaner.normalize_data("je Suis uN tEst") == data_test
 
     def test_if_data_has_not_special_character(self):
         """Test if data has not special characters"""

@@ -10,3 +10,5 @@ db/
 Pipfile*
 sqlite3.db
 .DS_Store
+*.py[cod]
+*$py.class
