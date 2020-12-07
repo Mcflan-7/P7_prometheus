@@ -1,1 +1,1 @@
-web: gunicorn app:PROMETHEUS
+web: gunicorn prometheus:APP
