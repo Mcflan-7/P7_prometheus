@@ -1,39 +1,19 @@
-""" import requests """
-
-""" def get_pizzas(quantity):
-
-    products = []
-    payload = {
-        "action": "process",
-        "json": 1,
-        "tagtype_0": "categories",
-        "tag_contains_0": "contains",
-        "tag_0": "pizzas",
-        "page_size": quantity if quantity < 1000 else 1000
-    }
-    response = requests.get(
-        'https://fr.openfoodfacts.org/cgi/search.pl',
-        params=payload
-    )
-    if response.status_code == 200:
-        products = response.json()['products']
-
-    return [
-        product['product_name'] for product in products
-        if 'product_name' in product
-    ]
+from ..wikimedia import WikipediaApi
 
 
-def test_get_pizzas_returns_correct_names(monkeypatch):
-    product1, product2 = products = ['My product 1', 'My product 2']
-    class MockRequestsGet:
-        def __init__(self, url, params=None):
-            self.status_code = 200
-        def json(self):
-            return {
-                "products": [{"product_name": product} for product in products]
-            }
+class TestWikipedia():
+    
+    def test_if_title_is_return_from_api(self):
+        wiki = WikipediaApi()
+        title = wiki.get_title()
+        assert title == "Deaflympics d'été de 1924"
 
-    monkeypatch.setattr('requests.get', MockRequestsGet)
 
-    assert get_pizzas(len(products)) == products """
+
+FAKE_API_RESULT= {} # Remplacer par la structure de donnée désirée
+
+class MockRequestsGet:
+    def __init__(self, url, params=None):
+        pass
+    def json(self):
+        return FAKE_API_RESULT

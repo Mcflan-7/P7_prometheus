@@ -19,8 +19,11 @@ class WikipediaApi:
             "generator": "geosearch",
             "ggscoord": f"{48.856611}|{2.3522219}",  # dummies datas PARIS
         }
-        self.r = requests.get(API_URL_WIKIPEDIA, params=self.payload).json()
-
+        try:
+            self.r = requests.get(API_URL_WIKIPEDIA, params=self.payload).json()
+        except requests.ConnectionError:
+            print("Unable to get data from the API")
+        
     def get_title(self):
         """Get the title from API wikipedia information
 
@@ -42,3 +45,4 @@ if __name__ == "__main__":
     wiki = WikipediaApi()
     print(wiki.get_title())
     print(wiki.get_extract())
+

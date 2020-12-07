@@ -9,8 +9,11 @@ class GeocodingApi:
 
     def __init__(self):
         self.payload = {"language": "fr", "address": request_location}
-        self.r = requests.get(API_URL_GEOCODING, params=self.payload).json()
-
+        try:
+            self.r = requests.get(API_URL_GEOCODING, params=self.payload).json()
+        except requests.ConnectionError:
+            print("Unable to get data from the API")
+        
     def get_location_information(self):
         """Get the useful information for a given location
 
