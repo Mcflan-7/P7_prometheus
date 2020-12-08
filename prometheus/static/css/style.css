@@ -253,6 +253,8 @@ nav li:hover {
   /* end animation */
 }
 
+
+
 .mask-logo {
   position: absolute;
   left: 340px;
@@ -309,7 +311,14 @@ nav li:hover {
     text-transform: uppercase;
     font-weight: 700;
   }
-
+.mask-logo {
+  position: absolute;
+  left: 162px;
+  top: 35px;
+  height: 20px;
+  transform: rotate(29deg);
+  z-index: 20;
+}
   header #header-logo {
     color: white;
     font-size: 20px;
