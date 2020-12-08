@@ -255,8 +255,9 @@ nav li:hover {
 
 .mask-logo {
   position: absolute;
-  left: 161px;
-  top: 35px;
+  left: 340px;
+  height: 50px;
+  top: 30px;
   transform: rotate(29deg);
   z-index: 20;
 }
