@@ -1,11 +1,9 @@
 """Main module for """
 from flask import Flask, render_template, request
 
-from .constant import SECRET_KEY
 from .forms import MyForm
 
-app = Flask(__name__)
-app.secret_key = SECRET_KEY
+from prometheus import app
 
 
 @app.route("/")
