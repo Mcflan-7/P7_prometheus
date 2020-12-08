@@ -2,7 +2,7 @@
 import os
 
 ############## CONTSTANT APP  #################
-SECRET_KEY = os.environ.get("FLASK_SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 ############## CONSTANTS GEOCODING##############
 API_KEY_GEOCODING = os.environ.get("API_KEY")
