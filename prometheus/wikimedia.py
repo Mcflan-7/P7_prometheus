@@ -1,5 +1,7 @@
 """ Handle the geocoding logic with Google Maps Geocoding API """
 
+from pprint import pprint
+
 import requests
 
 from .constant import API_URL_WIKIPEDIA
@@ -9,7 +11,19 @@ class WikipediaApi:
     """Request data from the wikipedia api"""
 
     def __init__(self):
-        self.payload = {
+        self.wikipedia_url = API_URL_WIKIPEDIA
+
+    def get_data(self, latitude, longitude):
+        """Get data from wikipedia API for a given latitude et longitude
+
+        Args:
+            latitude (float): Latitude coords
+            longitude (float): Longitude coords
+
+        Returns:
+            Dict: Data in a dict for the given latitude et longitude
+        """
+        payload = {
             "action": "query",
             "format": "json",
             "prop": "extracts",
@@ -17,32 +31,12 @@ class WikipediaApi:
             "explaintext": True,
             "exchars": 400,
             "generator": "geosearch",
-            "ggscoord": f"{48.856611}|{2.3522219}",  # dummies datas PARIS
+            "ggscoord": f"{latitude}|{longitude}",
         }
-        try:
-            self.r = requests.get(API_URL_WIKIPEDIA, params=self.payload).json()
-        except requests.ConnectionError:
-            print("Unable to get data from the API")
-        
-    def get_title(self):
-        """Get the title from API wikipedia information
-
-        Returns:
-            str: Title of the request
-        """
-        return self.r["query"]["pages"]["7738248"]["title"]
-
-    def get_extract(self):
-        """Get the extract from API wikipedia information
-
-        Returns:
-            str: Extract of the request
-        """
-        return self.r["query"]["pages"]["7738248"]["extract"]
+        response = requests.get(self.wikipedia_url, params=payload).json()
+        return response
 
 
 if __name__ == "__main__":
     wiki = WikipediaApi()
-    print(wiki.get_title())
-    print(wiki.get_extract())
-
+    print(wiki.get_data(48.856611, 2.3522219))

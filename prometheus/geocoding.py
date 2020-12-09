@@ -13,7 +13,7 @@ class GeocodingApi:
             self.r = requests.get(API_URL_GEOCODING, params=self.payload).json()
         except requests.ConnectionError:
             print("Unable to get data from the API")
-        
+
     def get_location_information(self):
         """Get the useful information for a given location
 
