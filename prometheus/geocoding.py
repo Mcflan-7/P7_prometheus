@@ -7,7 +7,12 @@ from .constant import API_URL_GEOCODING
 class GeocodingApi:
     """Request data from the geocoding api"""
 
-    def __init__(self):
+    def __init__(self, request_location):
+        """Define the arguments for the geocoding API
+
+        Args:
+            request_location (str): Location to be searched
+        """
         self.payload = {"language": "fr", "address": request_location}
         try:
             self.r = requests.get(API_URL_GEOCODING, params=self.payload).json()
@@ -24,8 +29,10 @@ class GeocodingApi:
         county = self.r["results"][0]["address_components"][2]["long_name"]
         lattitude = self.r["results"][0]["geometry"]["location"]["lat"]
         longitude = self.r["results"][0]["geometry"]["location"]["lng"]
-        return city_name, county, lattitude, longitude
+        return lattitude, longitude
 
 
 if __name__ == "__main__":
-    pass
+    geocoding = GeocodingApi("Paris")
+    lattitude, longitude = geocoding.get_location_information()
+    print(lattitude)

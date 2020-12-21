@@ -9,7 +9,7 @@ MOCK_WIKIPEDIA_SUCCESS = {
             {
                 "pageid": 6422233,
                 "ns": 0,
-                "title": "Titre de test",
+                "title": "Jeux olympiques d'étédzdzdz de 2024",
                 "lat": 37.78785,
                 "lon": -122.40065,
                 "dist": 129.9,
@@ -48,9 +48,21 @@ def mock_requests_get_success(url, params=None):
     return MockResponse200()
 
 
-def test_wikimedia_get_info_return_is_successeful(monkeypatch):
-    """ If requests is successeful, test should return dict """
+class TestWikipedia:
+    """Test wikipedia class with monkeypatch"""
+
     wiki = WikipediaApi()
-    monkeypatch.setattr("requests.get", mock_requests_get_success)
-    results = wiki.get_data(0, 0)
-    assert MOCK_WIKIPEDIA_SUCCESS == results
+
+    def test_wikimedia_get_info_return_is_successfull(self, monkeypatch):
+        """ If requests is successfull, test should return dict """
+
+        monkeypatch.setattr("requests.get", mock_requests_get_success)
+        results = self.wiki.get_data(0, 0)
+        assert MOCK_WIKIPEDIA_SUCCESS == results
+
+    def test_wikimedia_return_title_from_api(self, monkeypatch):
+        """ If requests is successfull, Should return title from dict """
+        monkeypatch.setattr("requests.get", mock_requests_get_success)
+        response = self.wiki.get_data(0, 0)
+        results = self.wiki.get_title(response)
+        assert MOCK_WIKIPEDIA_SUCCESS["query"]["geosearch"][0]["title"] == results
