@@ -23,12 +23,12 @@ print(wiki.get_title(response)) """
 class BotPy:
     """ Class """
 
-    def __init__(self):
+    def __init__(self, question):
         self.parser = ParserData()
         self.cleaner = DataCleaner()
-        self.wiki = WikipediaApi()
+        self.question = question
 
-    def get_question_from_client(self, question):
+    def get_question_from_client(self):
         """Received question from the client and return the needed data.
 
         Args:
@@ -37,7 +37,7 @@ class BotPy:
         Returns:
             str: Return location from the question once it is parsed and normalized.
         """
-        parsed_data = self.parser.isolated_data(question)
+        parsed_data = self.parser.isolated_data(self.question)
         location = self.cleaner.normalize_data(parsed_data)
         return location
 
@@ -54,11 +54,16 @@ class BotPy:
         """
         self.geocoding = GeocodingApi(location)
         lattitude, longitude = self.geocoding.get_location_information()
-        answer = self.wiki.get_data(lattitude, longitude)
-        return answer
+        wiki = WikipediaApi(lattitude, longitude)
+        story_title = wiki.get_title()
+        story_extract = wiki.get_extract()
+        story_url = wiki.get_url()
+
+        return story_title, story_extract, story_url
 
 
 if __name__ == "__main__":
-    bot = BotPy()
-    data = bot.get_question_from_client("Où se trouVe paris?")
-    print(bot.give_answer_for_client(data))
+    bot = BotPy("ou se trouve Paris?")
+    location = bot.get_question_from_client()
+    print(bot.give_answer_for_client(location))
+
