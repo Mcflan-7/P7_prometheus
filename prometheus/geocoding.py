@@ -25,8 +25,8 @@ class GeocodingApi:
         Returns:
             str: Title of the request
         """
-        city_name = self.r["results"][0]["address_components"][0]["long_name"]
-        county = self.r["results"][0]["address_components"][2]["long_name"]
+        # city_name = self.r["results"][0]["address_components"][0]["long_name"]
+        # county = self.r["results"][0]["address_components"][2]["long_name"]
         lattitude = self.r["results"][0]["geometry"]["location"]["lat"]
         longitude = self.r["results"][0]["geometry"]["location"]["lng"]
         return lattitude, longitude

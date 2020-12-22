@@ -1,7 +1,5 @@
 """ Handle the geocoding logic with Google Maps Geocoding API """
 
-from pprint import pprint
-
 import requests
 
 from .constant import API_URL_WIKIPEDIA
