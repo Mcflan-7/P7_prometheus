@@ -9,86 +9,53 @@ class WikipediaApi:
     """Request data from the wikipedia api"""
 
     def __init__(self, latitude, longitude):
+        """Intialise the wikipedia instance
+        Args:
+            latitude (float): Latitude for the location
+            longitude (float): Longitude for the location
+        """
         self.wikipedia_url = API_URL_WIKIPEDIA
         self.latitude = latitude
         self.longitude = longitude
-
+        self.params = {
+            "format": "json", 
+            "action": "query",  
+            "prop": "extracts|info",
+            "inprop": "url", 
+            "exchars": 700, 
+            "explaintext": True,
+            "generator": "geosearch",
+            "ggscoord": f"{self.latitude}|{self.longitude}"
+        }
+        self.response = requests.get(self.wikipedia_url, params=self.params).json()["query"]["pages"]
+        self.data_list = list(self.response.values())
 
     def get_title(self):
         """Get the 1st title from wikipedia API
 
-        Args:
-            response (dict): Response from the api in a dictionary
-
         Returns:
-            str: Return the 1st title from an article
+            str: Return the 1st url from an article
         """
-        payload = {
-            "format": "json",
-            "action": "query",
-            "list": "geosearch",
-            "gsradius": 10000,
-            "gscoord": f"{self.latitude}|{self.longitude}",
-        }
-        response = requests.get(self.wikipedia_url, params=payload).json()
-        title = response["query"]["geosearch"][0]["title"]
+
+        title = self.data_list[0]["title"]
 
         return title
 
     def get_extract(self):
         """Get the 1st extract from wikipedia API
 
-        Args:
-            response (dict): Response from the api in a dictionary
-
         Returns:
-            str: Return the 1st extract from an article
+            str: Return the 1st url from an article
         """
-        params = {
-            "format": "json",  # format de la réponse
-            "action": "query",  # action à effectuer
-            "prop": "extracts|info",  # Choix des propriétés pour les pages requises
-            "inprop": "url",  # Fournit une URL complète, une URL de modification, et l’URL canonique de chaque page.
-            "exchars": 1200,  # Nombre de caractères à retourner
-            "explaintext": True,
-            "generator": "geosearch",
-            "exintro": True,
-            "ggscoord": f"{self.latitude}|{self.longitude}",  # Renvoyer du texte brut (éliminer les balises de markup)
-        }
-        extract = requests.get(self.wikipedia_url, params=params).json()["query"][
-            "pages"
-        ]["7785129"]["extract"]
+        extract = self.data_list[0]["extract"]
         return extract
 
     def get_url(self):
-        """Get the 1st extract from wikipedia API
-
-        Args:
-            response (dict): Response from the api in a dictionary
+        """Get the 1st url from wikipedia API
 
         Returns:
-            str: Return the 1st extract from an article
+            str: Return the 1st url from an article
         """
-        params = {
-            "format": "json",  # format de la réponse
-            "action": "query",  # action à effectuer
-            "prop": "extracts|info",  # Choix des propriétés pour les pages requises
-            "inprop": "url",  # Fournit une URL complète, une URL de modification, et l’URL canonique de chaque page.
-            "exchars": 1200,  # Nombre de caractères à retourner
-            "explaintext": True,
-            "generator": "geosearch",
-            "exintro": True,
-            "ggscoord": f"{self.latitude}|{self.longitude}",  # Renvoyer du texte brut (éliminer les balises de markup)
-        }
-        url = requests.get(self.wikipedia_url, params=params).json()["query"]["pages"][
-            "7785129"
-        ]["fullurl"]
+        url = self.data_list[0]["fullurl"]
 
         return url
-
-
-
-if __name__ == "__main__":
-    wiki = WikipediaApi(48.856611, 2.3522219 )
-    print(wiki.get_title())
-    print(wiki.get_extract())

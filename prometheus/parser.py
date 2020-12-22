@@ -3,8 +3,6 @@ import json
 
 from .cleaner import DataCleaner
 
-# je pose une question : "ou se trouve Paris ?" /// je dois récupérer que Paris
-
 with open("prometheus/data/stopwords.json", "r") as f:
     stopword_fr = json.loads(f.read())
 
@@ -31,10 +29,3 @@ class ParserData:
         ]  # list comprehension, word for word dans queryworld (liste de query)
         result = " ".join(resultwords)
         return result
-
-
-if __name__ == "__main__":
-    parser = ParserData()
-    cleaner = DataCleaner()
-    clean = cleaner.normalize_data("Enfin sais ou paris")
-    print(parser.isolated_data(clean))

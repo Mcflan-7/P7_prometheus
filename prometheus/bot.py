@@ -5,23 +5,9 @@ from .geocoding import GeocodingApi
 from .parser import ParserData
 from .wikimedia import WikipediaApi
 
-""" geocoding = GeocodingApi("Ou se trouve Marseille")
-parser = ParserData()
-data = parser.isolated_data("coucou grandpy ou se trouve paris?")
-cleaner = DataCleaner()
-print(cleaner.normalize_data(data))
-
-
-print(geocoding)
-lattitude, longitude = geocoding.get_location_information()
-
-wiki = WikipediaApi()
-response = wiki.get_data(lattitude, longitude)
-print(wiki.get_title(response)) """
-
 
 class BotPy:
-    """ Class """
+    """ Class that create instances for the front end """
 
     def __init__(self, question):
         self.parser = ParserData()
@@ -63,7 +49,10 @@ class BotPy:
 
 
 if __name__ == "__main__":
-    bot = BotPy("ou se trouve Paris?")
+    bot = BotPy("Ou se trouve paris?")
     location = bot.get_question_from_client()
-    print(bot.give_answer_for_client(location))
-
+    story_title, story_extract, story_url = bot.give_answer_for_client(location)
+    print(story_title)
+    print(story_extract)
+    print()
+    print(story_url)
