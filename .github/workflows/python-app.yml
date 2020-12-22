@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.7, 3.8, 3.9]
 
     steps:
     - uses: actions/checkout@v2
@@ -23,8 +23,7 @@ jobs:
     - name: Lint the code with black formatter and isort
       run: |
         isort .
-        black .
-        pytest 
-    - name: Test the whole program 
+        black . 
+    - name: Launch unit testings with Pytest
       run: |
         pytest 

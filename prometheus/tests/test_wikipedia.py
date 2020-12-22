@@ -1,7 +1,9 @@
+""" Test module for wikipedia using Pytest """
 import requests
 
 from ..wikimedia import WikipediaApi
 
+# Mocking JSON response when request is sent to the Wikipedia API
 MOCK_WIKIPEDIA_SUCCESS = {
     "batchcomplete": "",
     "query": {

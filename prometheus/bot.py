@@ -21,17 +21,36 @@ print(wiki.get_title(response)) """
 
 
 class BotPy:
+    """ Class """
     def __init__(self):
         self.parser = ParserData()
         self.cleaner = DataCleaner()
         self.wiki = WikipediaApi()
 
     def get_question_from_client(self, question):
+        """Received question from the client and return the needed data. 
+
+        Args:
+            question (str): Question from the client Ex: ("Where is Paris")
+
+        Returns:
+            str: Return location from the question once it is parsed and normalized.
+        """
         parsed_data = self.parser.isolated_data(question)
         location = self.cleaner.normalize_data(parsed_data)
         return location
 
     def give_answer_for_client(self, location):
+        """Given the data received by the method 
+        it will give a short story of the location with a link to 
+        read the full story.
+
+        Args:
+            location (str): City or location 
+
+        Returns:
+            str: Return an anwser with a story and a link 
+        """
         self.geocoding = GeocodingApi(location)
         lattitude, longitude = self.geocoding.get_location_information()
         answer = self.wiki.get_data(lattitude, longitude)

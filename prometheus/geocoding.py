@@ -36,3 +36,4 @@ if __name__ == "__main__":
     geocoding = GeocodingApi("Paris")
     lattitude, longitude = geocoding.get_location_information()
     print(lattitude)
+    print(longitude)
