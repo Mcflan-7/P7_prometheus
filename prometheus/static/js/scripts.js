@@ -1,44 +1,25 @@
-/* Main JS for P7 - https://github.com/Mcflan-7/P7_prometheus  */
+/* Main JS for P7 - https://github.com/gaetangr/P7_prometheus  */
 "use strict";
 
-// MODAL SETTINGS
 
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".close-modal");
-const btnsOpenModal = document.querySelectorAll(".show-modal");
+let form = document.querySelector("#user-text-form");
 
-const openModal = function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
-
-const closeModal = function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-};
-
-for (let i = 0; i < btnsOpenModal.length; i++)
-  btnsOpenModal[i].addEventListener("click", openModal);
-
-btnCloseModal.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
-
-document.addEventListener("keydown", function (e) {
-  // console.log(e.key);
-
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    closeModal();
-  }
-});
-
-// Hamburger menu
-
-function displayMenu() {
-  const burgerMenu = document.getElementById("myLinks");
-  if (burgerMenu.style.display === "block") {
-    burgerMenu.style.display = "none";
-  } else {
-    burgerMenu.style.display = "block";
-  }
+function postFormData(url, data) {
+  return;
+  // Envoyer contenu formulaire au serveur
+  fetch(url, {
+    method: "POST",
+    body: data,
+  })
+    .then((response) => response.json())
+    .catch((error) => console.log(error));
 }
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  // Envoyer contenu formulaire au serveur
+  postFormData("/ajax", new FormData(form)).then((response) => {
+    console.log(response);
+  });
+});

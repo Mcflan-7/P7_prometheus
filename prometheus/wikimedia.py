@@ -34,7 +34,7 @@ class WikipediaApi:
         """Get the 1st title from wikipedia API
 
         Returns:
-            str: Return the 1st url from an article
+            str: Return the 1st title from an article
         """
 
         title = self.data_list[0]["title"]
@@ -45,7 +45,7 @@ class WikipediaApi:
         """Get the 1st extract from wikipedia API
 
         Returns:
-            str: Return the 1st url from an article
+            str: Return the 1st extract from an article
         """
         extract = self.data_list[0]["extract"]
         return extract

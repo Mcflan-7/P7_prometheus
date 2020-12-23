@@ -62,10 +62,7 @@
                <div class="flr">
                   <div class="messages">
                      <p class="msg" id="msg-1">
-                        Lorem ipsum dolor sit amet
-                     </p>
-                     <p class="msg" id="msg-2">
-                        Praesent varius
+                        Votre question: 
                      </p>
                   </div>
                </div>
@@ -74,16 +71,19 @@
          </article>
       </section>
       <!-- Chatbox form for guest -->
-      <form id="form" method="post">
-            {{ form.hidden_tag() }}
-            {{ form.message(autofocus="", placeholder="Demandez à Yoda de trouver un lieu", maxlength="200") }}
-            <button id="submit"></button>
+
+      <form id="user-text-form">
+         <input type="text" name="userText" id="userText">
+            <button type="submit" value="envoyer"></button>
         </form>
+
+
       <!-- Prometheus chatbox END-->
       <footer id="footer-main">
          <p>
             <a href="https://github.com/gaetangr"><i class="fab fa-github"></i> <br>  GAETAN GR</a> 
          </p>
       </footer>
+<script type="module" src="./scripts.js"></script>
    </body>
 </html>

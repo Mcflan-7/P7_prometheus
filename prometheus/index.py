@@ -1,5 +1,5 @@
 """Main module to render form and data to the flask app """
-from flask import render_template, request
+from flask import render_template, request, jsonify
 
 from prometheus import app
 
@@ -10,7 +10,7 @@ from .forms import FormBot
 app.secret_key = SECRET_KEY
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
     """display the form and information for the client to the main
     index page.
@@ -20,10 +20,13 @@ def index():
     :template:`prometheus/index.html`
     """
 
-    form = FormBot(request.form)
-    bot = BotPy("paris")
-    data = bot.get_question_from_client()
-    story_title, story_extract, story_url = bot.give_answer_for_client(data)
     return render_template(
-        "index.html", form=form, title=story_title, extract=story_extract, url=story_url
-    )
+        "index.html")
+
+@app.route("/ajax", methods=["POST"] )
+def ajax():
+    user_input = request.get_data("userText").decode()
+    print(user_input)
+    bot = BotPy(user_input)
+    bot.get_question_from_client()
+    return user_input 

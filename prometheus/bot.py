@@ -41,6 +41,7 @@ class BotPy:
         self.geocoding = GeocodingApi(location)
         lattitude, longitude = self.geocoding.get_location_information()
         wiki = WikipediaApi(lattitude, longitude)
+        
         story_title = wiki.get_title()
         story_extract = wiki.get_extract()
         story_url = wiki.get_url()
