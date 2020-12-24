@@ -25,9 +25,10 @@ def index():
 
 @app.route("/ajax", methods=["POST"])
 def ajax():
+    """Received data from a python module and
+    return a jsonify content to the client
+    """
     question = request.form["question"]
-    print(question)
     bot = BotPy(question)
     response = bot.give_answer_for_client()
-    print(response)
     return jsonify(response)

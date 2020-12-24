@@ -39,6 +39,7 @@ class BotPy:
             "title": story_title,
             "article": story_extract,
             "url": story_url,
+            "question": location,
         }
 
         return data
@@ -47,4 +48,4 @@ class BotPy:
 if __name__ == "__main__":
     bot = BotPy("Ou se trouve paris?")
     data = bot.give_answer_for_client()
-    print(data)
+    print(data["question"])
