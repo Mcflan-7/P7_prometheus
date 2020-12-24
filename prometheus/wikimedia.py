@@ -18,16 +18,18 @@ class WikipediaApi:
         self.latitude = latitude
         self.longitude = longitude
         self.params = {
-            "format": "json", 
-            "action": "query",  
+            "format": "json",
+            "action": "query",
             "prop": "extracts|info",
-            "inprop": "url", 
-            "exchars": 700, 
+            "inprop": "url",
+            "exchars": 700,
             "explaintext": True,
             "generator": "geosearch",
-            "ggscoord": f"{self.latitude}|{self.longitude}"
+            "ggscoord": f"{self.latitude}|{self.longitude}",
         }
-        self.response = requests.get(self.wikipedia_url, params=self.params).json()["query"]["pages"]
+        self.response = requests.get(self.wikipedia_url, params=self.params).json()[
+            "query"
+        ]["pages"]
         self.data_list = list(self.response.values())
 
     def get_title(self):

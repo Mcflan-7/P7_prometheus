@@ -1,11 +1,10 @@
 """Main module to render form and data to the flask app """
-from flask import render_template, request, jsonify
+from flask import jsonify, render_template, request
 
 from prometheus import app
 
 from .bot import BotPy
 from .constant import SECRET_KEY
-from .forms import FormBot
 
 app.secret_key = SECRET_KEY
 
@@ -20,8 +19,8 @@ def index():
     :template:`prometheus/index.html`
     """
 
-    return render_template(
-        "index.html")
+    return render_template("index.html")
+
 
 @app.route("/ajax", methods=["POST"])
 def ajax():

@@ -74,8 +74,6 @@ def mock_requests_get_success(url, params=None):
 class TestGeocoding:
     """Test geocoding class with monkeypatch"""
 
-    
-
     def test_geocoding_get_lat_and_long_return_(self, monkeypatch):
         """ If requests is successfull, test should return the long and lat of a location """
         geocoding = GeocodingApi("Paris")
