@@ -14,20 +14,7 @@ class BotPy:
         self.cleaner = DataCleaner()
         self.question = question
 
-    def get_question_from_client(self):
-        """Received question from the client and return the needed data.
-
-        Args:
-            question (str): Question from the client Ex: ("Where is Paris")
-
-        Returns:
-            str: Return location from the question once it is parsed and normalized.
-        """
-        parsed_data = self.parser.isolated_data(self.question)
-        location = self.cleaner.normalize_data(parsed_data)
-        return location
-
-    def give_answer_for_client(self, location):
+    def give_answer_for_client(self):
         """Given the data received by the method
         it will give a short story of the location with a link to
         read the full story.
@@ -38,6 +25,8 @@ class BotPy:
         Returns:
             str: Return an anwser with a story and a link
         """
+        parsed_data = self.parser.isolated_data(self.question)
+        location = self.cleaner.normalize_data(parsed_data)
         self.geocoding = GeocodingApi(location)
         lattitude, longitude = self.geocoding.get_location_information()
         wiki = WikipediaApi(lattitude, longitude)
@@ -46,14 +35,16 @@ class BotPy:
         story_extract = wiki.get_extract()
         story_url = wiki.get_url()
 
-        return story_title, story_extract, story_url
+        data = {
+            "title": story_title,
+            "article": story_extract,
+            "url": story_url,
+        }
+
+        return data
 
 
 if __name__ == "__main__":
     bot = BotPy("Ou se trouve paris?")
-    location = bot.get_question_from_client()
-    story_title, story_extract, story_url = bot.give_answer_for_client(location)
-    print(story_title)
-    print(story_extract)
-    print()
-    print(story_url)
+    data = bot.give_answer_for_client()
+    print(data)

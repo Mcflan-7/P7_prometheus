@@ -23,10 +23,11 @@ def index():
     return render_template(
         "index.html")
 
-@app.route("/ajax", methods=["POST"] )
+@app.route("/ajax", methods=["POST"])
 def ajax():
-    user_input = request.get_data("userText").decode()
-    print(user_input)
-    bot = BotPy(user_input)
-    bot.get_question_from_client()
-    return user_input 
+    question = request.form["question"]
+    print(question)
+    bot = BotPy(question)
+    response = bot.give_answer_for_client()
+    print(response)
+    return jsonify(response)

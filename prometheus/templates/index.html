@@ -5,6 +5,40 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- Styles and custom CSS -->
       <link rel="stylesheet" href="/static/css/style.css" />
+      <style>
+         #spinner:not([hidden]) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#spinner::after {
+  content: "";
+  width: 80px;
+  height: 80px;
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #f25a41;
+  border-radius: 100%;
+  will-change: transform;
+  animation: spin 1s infinite linear
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+      </style>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
       <title>Prometheus - Robot presque intelligent</title>
    </head>
@@ -39,15 +73,20 @@
       <section class="chat-window">
          <br>
          <!-- Messages from  bot -->
+         
          <article class="msg-container msg-bot">
-            <div class="msg-box">
+           
+      
+            <div class="msg-box" >
                <img class="user-img" id="user-0" 
                   src="https://blog.generationrobots.com/wp-content/uploads/2017/05/cropped-tete-de-robot.png" />
                <div class="flr">
                   <div class="messages">
                      <p class="msg" id="msg-0">
-                         <strong>{{ title }}</strong> <br>
-                         <p class="msg">{{ extract }} </p>
+                         <strong>
+                            <span id="bot-title"></span>
+                         </strong> <br>
+                         <span id="bot-extract"> </span>
                          <hr>
                          <a href="{{ url }}" style="color: bisque;" >En savoir plus sur Wikipedia</a>
                          
@@ -55,6 +94,7 @@
                   </div>
                </div>
             </div>
+
          </article>
          <!-- Messages from  guest input-->
          <article class="msg-container msg-self" id="msg-0">
@@ -72,11 +112,12 @@
       </section>
       <!-- Chatbox form for guest -->
 
-      <form id="user-text-form">
-         <input type="text" name="userText" id="userText">
-            <button type="submit" value="envoyer"></button>
-        </form>
-
+    <form>
+        <input type="text" name='question' id='question'>
+        <button type='submit'>Envoyer</button>
+    </form>
+    <div id='chatbox'>
+    </div>
 
       <!-- Prometheus chatbox END-->
       <footer id="footer-main">
@@ -84,6 +125,49 @@
             <a href="https://github.com/gaetangr"><i class="fab fa-github"></i> <br>  GAETAN GR</a> 
          </p>
       </footer>
-<script type="module" src="./scripts.js"></script>
+
+      <script>
+
+
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+   const data = new FormData(form);
+
+  fetch("/ajax", {
+    method: "POST",
+    body: data,
+   
+  })
+    .then((response) => response.json())
+    .then(data => {
+        //Ajouter la question de l'utilisateur dans le chatbox
+     console.log()
+     
+const para = document.createElement("p");
+const title = document.createTextNode(data.title);
+const extract = document.createTextNode(data.article);
+const url = document.createTextNode(data.url);
+para.appendChild(title);
+para.appendChild(extract);
+
+const element = document.getElementById("bot-title");
+const elementExtract = document.getElementById("bot-extract");
+const elementUrl = document.getElementById("bot-url");
+
+
+element.appendChild(title);
+elementExtract.appendChild(extract);
+elementExtract.appendChild(elementUrl);
+   
+
+     })
+});
+
+
+
+      </script>
    </body>
 </html>
