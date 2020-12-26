@@ -1,10 +1,12 @@
 function myFunction() {}
 const form = document.querySelector("form");
 
+const spinner = document.getElementById("spinner");
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   const data = new FormData(form);
-
+  spinner.removeAttribute("hidden");
   fetch("/ajax", {
     method: "POST",
     body: data,
@@ -12,7 +14,7 @@ form.addEventListener("submit", function (event) {
     .then((response) => response.json())
     .then((data) => {
       //Ajouter la question de l'utilisateur dans le chatbox
-
+    spinner.setAttribute("hidden", "");
 
        var a = document.createElement("p");
        a.setAttribute("class", "chat-header");
@@ -72,3 +74,16 @@ form.addEventListener("submit", function (event) {
   
   
 });
+
+
+function loadData() {
+  
+  fetch("https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=5000ms")
+    .then((response) => response.json())
+    .then((data) => {
+      spinner.setAttribute("hidden", "");
+      console.log(data);
+    });
+}
+
+
