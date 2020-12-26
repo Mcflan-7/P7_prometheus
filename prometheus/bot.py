@@ -19,11 +19,8 @@ class BotPy:
         it will give a short story of the location with a link to
         read the full story.
 
-        Args:
-            location (str): City or location
-
         Returns:
-            str: Return an anwser with a story and a link
+            dict: Return an anwser with uselful data
         """
         parsed_data = self.parser.isolated_data(self.question)
         location = self.cleaner.normalize_data(parsed_data)
@@ -40,12 +37,8 @@ class BotPy:
             "article": story_extract,
             "url": story_url,
             "question": location,
+            "lat": lattitude,
+            "lng": longitude
         }
 
         return data
-
-
-if __name__ == "__main__":
-    bot = BotPy("Ou se trouve paris?")
-    data = bot.give_answer_for_client()
-    print(data["question"])

@@ -24,4 +24,3 @@ jobs:
       run: |
         isort .
         black .
-        pytest prometheus

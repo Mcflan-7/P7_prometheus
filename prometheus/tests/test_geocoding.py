@@ -48,10 +48,6 @@ MOCK_GEOCODING_SUCCESS = {
     "status": "OK",
 }
 
-
-print(MOCK_GEOCODING_SUCCESS)
-
-
 class MockResponse200:
     """Mock 200 response for requests."""
 
@@ -74,8 +70,8 @@ def mock_requests_get_success(url, params=None):
 class TestGeocoding:
     """Test geocoding class with monkeypatch"""
 
-    def test_geocoding_get_lat_and_long_return_(self, monkeypatch):
-        """ If requests is successfull, test should return the long and lat of a location """
+    def test_geocoding_get_lat(self, monkeypatch):
+        """ If requests is successfull, test should return the lat of a location """
         geocoding = GeocodingApi("Paris")
         monkeypatch.setattr("requests.get", mock_requests_get_success)
         # lattitude and longitude are assigned
