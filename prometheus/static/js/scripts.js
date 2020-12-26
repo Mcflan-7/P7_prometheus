@@ -1,3 +1,7 @@
+
+function myFunction() {
+
+};
 const form = document.querySelector("form");
 
 form.addEventListener("submit", function (event) {
@@ -25,7 +29,7 @@ form.addEventListener("submit", function (event) {
       const lat = document.createTextNode(data.lat);
       const lng = document.createTextNode(data.lng);
 
-      para.appendChild(intro)
+      para.appendChild(intro);
       para.appendChild(guest);
       para.appendChild(title);
       para.appendChild(extract);
@@ -40,21 +44,29 @@ form.addEventListener("submit", function (event) {
       const elementExtract = document.getElementById("bot-extract");
       const elementUrl = document.getElementById("bot-url");
       const elementQuestion = document.getElementById("guest-question");
-      
+
       const elementLat = document.getElementById("lat");
       const elementLng = document.getElementById("lng");
 
-      elementIntro.appendChild(intro)
+      elementIntro.appendChild(intro);
       elementTitle.appendChild(title);
       elementGuest.appendChild(guest);
       elementExtract.appendChild(extract);
       elementUrl.appendChild(url);
       elementQuestion.appendChild(question);
 
+  var a = document.createElement("a");
+  var linkText = document.createTextNode("En savoir plus");
+  a.appendChild(linkText);
+  a.title = "En savoir plus";
+  a.href = data.url;
+  document.body.appendChild(a);
+      
       elementLat.appendChild(lat);
       elementLng.appendChild(lng);
 
-      
+
       
     });
 });
+
