@@ -11,7 +11,7 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 11pt;
   font-weight: 300;
-  color: #6c6c6c;
+  color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -101,6 +101,7 @@ nav li:hover {
 /*       CHATBOX STYLING & EXTRA    */
 /*----------------------------------*/
 
+
 .chatbox {
   width: 800px;
   border-radius: 20px;
@@ -115,7 +116,7 @@ nav li:hover {
   display: flex;
   background: #4b4e58;
   padding: 10px 10px 0 10px;
-  border-radius: 6px 6px 0px 0px;
+  text-align: center;
   width: auto;
   color: #fff;
   float: left;

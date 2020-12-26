@@ -1,7 +1,4 @@
-
-function myFunction() {
-
-};
+function myFunction() {}
 const form = document.querySelector("form");
 
 form.addEventListener("submit", function (event) {
@@ -15,58 +12,63 @@ form.addEventListener("submit", function (event) {
     .then((response) => response.json())
     .then((data) => {
       //Ajouter la question de l'utilisateur dans le chatbox
-      console.log();
 
-      const para = document.createElement("p");
 
-      const intro = document.createTextNode("Voici votre petite histoire:");
-      const guest = document.createTextNode("Vous avez posé une question sur:");
-      const title = document.createTextNode(data.title);
-      const question = document.createTextNode(data.question);
-      const extract = document.createTextNode(data.article);
-      const url = document.createTextNode(data.url);
+       var a = document.createElement("p");
+       a.setAttribute("class", "chat-header");
+       var linkText = document.createTextNode(
+         `Notre petit robot a detecté que vous souhaitiez une information sur: ${data.question}`
+       );
+       a.appendChild(linkText);
+       document.body.appendChild(a);
 
-      const lat = document.createTextNode(data.lat);
-      const lng = document.createTextNode(data.lng);
 
-      para.appendChild(intro);
-      para.appendChild(guest);
-      para.appendChild(title);
-      para.appendChild(extract);
-      para.appendChild(question);
 
-      para.appendChild(lat);
-      para.appendChild(lng);
+      var a = document.createElement("h3");
+      a.setAttribute("class", "chat-header");
+      var linkText = document.createTextNode(`Voici une histoire sur: ${data.title}`);
+      a.appendChild(linkText);
+      document.body.appendChild(a);
 
-      const elementIntro = document.getElementById("bot-intro");
-      const elementGuest = document.getElementById("bot-guest");
-      const elementTitle = document.getElementById("bot-title");
-      const elementExtract = document.getElementById("bot-extract");
-      const elementUrl = document.getElementById("bot-url");
-      const elementQuestion = document.getElementById("guest-question");
+      var a = document.createElement("p");
+      var linkText = document.createTextNode(data.article);
+      a.setAttribute("class", "msg-box");
+      a.appendChild(linkText);
+      document.body.appendChild(a);
 
-      const elementLat = document.getElementById("lat");
-      const elementLng = document.getElementById("lng");
+   var a = document.createElement("a");
+   var linkText = document.createTextNode("En savoir plus");
+   a.setAttribute("class", "msg-box");
+   a.appendChild(linkText);
 
-      elementIntro.appendChild(intro);
-      elementTitle.appendChild(title);
-      elementGuest.appendChild(guest);
-      elementExtract.appendChild(extract);
-      elementUrl.appendChild(url);
-      elementQuestion.appendChild(question);
-
-  var a = document.createElement("a");
-  var linkText = document.createTextNode("En savoir plus");
-  a.appendChild(linkText);
-  a.title = "En savoir plus";
-  a.href = data.url;
-  document.body.appendChild(a);
+   a.title = "En savoir plus";
+   a.href = data.url;
+   document.body.appendChild(a);
       
-      elementLat.appendChild(lat);
-      elementLng.appendChild(lng);
+      var ifrm = document.createElement("iframe");
+      ifrm.setAttribute("class", "msg-box");
+      ifrm.setAttribute(
+        "src",
+        `https://www.google.com/maps/embed/v1/view?key=AIzaSyCbn1GQVOld0hvqZI4GmN5vlHunZHWO_DY&center=${data.lat},${data.lng}&zoom=18&maptype=satellite`
+      );
+
+      ifrm.style.width = "640px";
+      ifrm.style.height = "480px";
+      ifrm.style.height = "480px";
+
+      document.body.appendChild(ifrm);
 
 
       
+
+      var a = document.createElement("hr");
+      var linkText = document.createTextNode("Message suivant");
+      a.setAttribute("id", "msg-box");
+      a.appendChild(linkText);
+      document.body.appendChild(a);
+
+
     });
+  
+  
 });
-

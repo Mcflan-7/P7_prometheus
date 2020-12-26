@@ -29,57 +29,17 @@
       </header>
    
       <!-- Prometheus chatbox -->
-      <section class="chatbox">
+      <section class="chatbox" id="chatboxCONV">
       <!-- Title, avatar, icones -->
       <div class="chat-header">
          <img class="user-img-header"  
             src="https://blog.generationrobots.com/wp-content/uploads/2017/05/cropped-tete-de-robot.png"/> 
-         <h1>
+         <h1 onclick="clearBox()">
             Prometheus <img  width="12px" src="https://miro.medium.com/max/512/1*nZ9VwHTLxAfNCuCjYAkajg.png" alt="">
             <span class="show-modal"></span>
          </h1>
       </div>
-      <section class="chat-window">
-         <br>
-         <!-- Messages from  bot -->
-         
-         <article class="msg-container msg-bot">
-           
-      
-            <div class="msg-box" >
-               <img class="user-img" id="user-0" 
-                  src="https://blog.generationrobots.com/wp-content/uploads/2017/05/cropped-tete-de-robot.png" />
-               <div class="flr">
-                  <div class="messages">
-                     <p class="msg" id="msg-0">
-                         <strong>
-                           <span id="bot-intro"> </span>
-                            <span id="bot-title"></span>
-                         </strong> <br>
-                         <span id="bot-extract"> </span>
-                         <hr>
-                           <a href=""></a> <span id="bot-url">  <p id="demo" onclick="myFunction()">Click me to change my HTML content (innerHTML).</p></span>
-
-               </div>
-            </div>
-
-        
-         </article>
-         <!-- Messages from  guest input-->
-         <article class="msg-container msg-self" id="msg-0">
-            <div class="msg-box">
-               <div class="flr">
-                  <div class="messages">
-                     <p class="msg" id="msg-1">
-                        <span id="bot-guest"> </span>
-                      <span id="guest-question"> </span>
-                     </p>
-                  </div>
-               </div>
-               <img class="user-img" id="user-0" src="//gravatar.com/avatar/56234674574535734573000000000001?d=retro" />
-            </div>
-         </article>
-      </section>
+  
       <!-- Chatbox form for guest -->
 <!-- Chatbox form for guest -->
       <form class="chat-input">
@@ -96,8 +56,15 @@
          </p>
       </footer>
 
+      <script>
+
+         function clearBox(chatboxCONV)
+{
+
+    document.getElementById(elementID).innerHTML = "";
+}
+      </script>
       <!-- Prometheus JS-->
   <script src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
    </body>
 </html>
-
