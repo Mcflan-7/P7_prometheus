@@ -48,6 +48,7 @@ MOCK_GEOCODING_SUCCESS = {
     "status": "OK",
 }
 
+
 class MockResponse200:
     """Mock 200 response for requests."""
 

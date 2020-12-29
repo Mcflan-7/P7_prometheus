@@ -38,7 +38,7 @@ class BotPy:
             "url": story_url,
             "question": location,
             "lat": lattitude,
-            "lng": longitude
+            "lng": longitude,
         }
 
         return data

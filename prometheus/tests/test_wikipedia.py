@@ -1,5 +1,4 @@
 """ Test module for wikipedia using Pytest """
-import requests
 
 from ..wikimedia import WikipediaApi
 

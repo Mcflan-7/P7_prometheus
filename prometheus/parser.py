@@ -1,8 +1,6 @@
 """ Parse the sentence and keep valuable data """
 import json
 
-from .cleaner import DataCleaner
-
 with open("prometheus/data/stopwords.json", "r") as f:
     stopword_fr = json.loads(f.read())
 
